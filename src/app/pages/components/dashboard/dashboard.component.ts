@@ -63,6 +63,7 @@ elapseTime;
       const hourInSeconds = 3600;
       const startDateFromDB: any = this.convertUTCDateToLocalDate(new Date(startdate));
       const currentGMTDate: any = new Date();
+      const diffInSeconds = (Date.parse(currentGMTDate) - Date.parse(startDateFromDB)) / 1000;
       return  hourInSeconds - diffInSeconds;
 
     }
