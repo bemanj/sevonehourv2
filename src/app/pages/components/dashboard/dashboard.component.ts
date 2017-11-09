@@ -76,6 +76,6 @@ elapseTime;
 
       newDate.setHours(hours - offset);
       return newDate;
-        
+
       }
 }

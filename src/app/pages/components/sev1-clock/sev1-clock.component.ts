@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
 declare var jquery: any;
-// import * as t from './../../../../assets/flipclock'; 
+// import * as t from './../../../../assets/flipclock';
 
 @Component({
     selector: 'app-sev1-clock',
