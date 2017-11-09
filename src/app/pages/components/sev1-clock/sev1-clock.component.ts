@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+// import * as $ from 'jquery';
 declare var $: any;
 declare var jquery: any;
 
@@ -14,14 +15,18 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
     @Input() incidentNumber: any;
     @Input() elapseTime: any;
     @Input() incidentNumberCounter: any;
+    @Input() startdDate: Date;
 
-        ngOnInit() {
-            this.incidentNumberCounter = (this.incidentNumber + 'Counter');
+    ngOnInit() {
+        this.incidentNumberCounter = (this.incidentNumber + 'Counter');
+        if (isNaN(this.elapseTime) || this.elapseTime < 0) {
+            this.elapseTime = 0;
         }
+    }
 
         ngAfterViewInit() {
             setInterval(() => { this.setFlipClock(); }, 1000);
-
+// debugger
             $('#' + this.incidentNumber).TimeCircles({
                 time: {
                     Days: {
@@ -46,46 +51,48 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
             });
         }
 
+//        [‎11/‎9/‎2017 9:35 PM]  Rainier Bacareza:
         setFlipClock() {
-
-            if (this.elapseTime > 0) {
-                this.elapseTime = this.elapseTime - 1;
-                if (this.elapseTime <= 0) {
-                    console.log($('#' + this.incidentNumberCounter));
-                    $('#' + this.incidentNumberCounter).TimeCircles({
-                        time: {
-                            Days: {
-                                show: true,
-                                text: 'Day/s',
-                                color: '#F99'
-                            },
-                            Hours: {
-                                show: true,
-                                text: 'Hour/s',
-                                color: '#F99'
-                            },
-                            Minutes: {
-                                show: true,
-                                text: 'Minute/s',
-                                color: '#F99'
-                            },
-                            Seconds: {
-                                show: true,
-                                text: 'Second/s',
-                                color: '#F99'
-                            }
+                    if (this.elapseTime >= 0) {
+                        if (this.elapseTime > 0) {
+                            this.elapseTime = this.elapseTime - 1;
                         }
-                    });
 
+                        if (this.elapseTime <= 0) {
+                            console.log($('#' + this.incidentNumberCounter));
+                            $('#' + this.incidentNumberCounter).TimeCircles({
+                                time: {
+                                    Days: {
+                                        show: true,
+                                        text: 'Day/s',
+                                        color: '#F99'
+                                    },
+                                    Hours: {
+                                        show: true,
+                                        text: 'Hour/s',
+                                        color: '#F99'
+                                    },
+                                    Minutes: {
+                                        show: true,
+                                        text: 'Minute/s',
+                                        color: '#F99'
+                                    },
+                                    Seconds: {
+                                        show: true,
+                                        text: 'Second/s',
+                                        color: '#F99'
+                                    }
+                                }
+                            });
+                        }
+                    }
                 }
-            }
-        }
 
         showCountDown() {
             return (this.elapseTime > 0);
         }
 
-        showCountUp() {
+        showCountUp() { // after 1 hour
             return (this.elapseTime <= 0);
         }
     }
