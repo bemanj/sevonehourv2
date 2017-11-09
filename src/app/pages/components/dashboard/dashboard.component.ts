@@ -67,13 +67,8 @@ elapseTime;
       return  hourInSeconds - diffInSeconds;
 
     }
-<<<<<<< HEAD
 
     convertUTCDateToLocalDate(da: Date) {
-=======
-  
-      convertUTCDateToLocalDate(da: Date) {
->>>>>>> 549eb77989404c231072b55e018313caa49aeb2c
       // debugger
       const newDate = new Date(da.getTime() + da.getTimezoneOffset() * 60 * 1000);
       const offset = da.getTimezoneOffset() / 60;

@@ -23,7 +23,7 @@ export class DataService {
     // return this.http.get(this._url + 'WallBoardValues/')
     //  .do(this.logResponse)
     //  .map((res: Response) => res.json());
-    }
+    // }
 
 
     // getAll(a, b, c) {
