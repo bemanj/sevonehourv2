@@ -15,9 +15,13 @@ export class DataService {
 
     getAll() {
       console.log();
-    return this.http.get(this._url + 'WallBoardValues/')
-     .do(this.logResponse)
-     .map((res: Response) => res.json());
+      return this.http.get('http://localhost:4200/assets/sevoneclock.json')
+        .do(this.logResponse)
+        .map((res: Response) => res.json());
+
+    // return this.http.get(this._url + 'WallBoardValues/')
+    //  .do(this.logResponse)
+    //  .map((res: Response) => res.json());
     }
 
 
