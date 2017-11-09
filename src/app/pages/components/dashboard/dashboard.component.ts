@@ -41,7 +41,12 @@ elapseTime;
     this.fetchdata.getAll().subscribe(d => {
       this.wallboarddata = d;
       d.forEach((data: WallboardFetch) => {
-        this.tempwallboardata.push(new TempWallBoardData(data.$id, data.Incident_Number, this.SecondsRemain(data.Start_Date)));
+            this.tempwallboardata.push(
+             new TempWallBoardData(
+               data.$id, data.Incident_Number,
+               this.SecondsRemain(data.Start_Date),
+               this.convertUTCDateToLocalDate(new Date(data.Start_Date)))
+             );
       });
       console.log(this.tempwallboardata);
     });
