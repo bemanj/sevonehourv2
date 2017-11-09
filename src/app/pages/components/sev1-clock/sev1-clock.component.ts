@@ -15,6 +15,7 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
     @Input() incidentNumber: any;
     @Input() elapseTime: any;
     @Input() incidentNumberCounter: any;
+    @Input() startdDate: Date;
 
     ngOnInit() {
         this.incidentNumberCounter = (this.incidentNumber + 'Counter');
@@ -91,7 +92,7 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
             return (this.elapseTime > 0);
         }
 
-        showCountUp() {
+        showCountUp() { // after 1 hour
             return (this.elapseTime <= 0);
         }
     }
