@@ -1,0 +1,63 @@
+<div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <i class="col-xs-3 glyphicon glyphicon-warning-sign" style="font-size: 5em;"></i>
+                    <div class="col-xs-9 text-right">
+                        <span style="font-size: 40px;">{{incidentLevel}}</span>
+                        <span>{{incidentTitle}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="min-height: 335px;">
+                <div *ngIf="showCountDown()" [attr.data-timer]="elapseTime" id={{incidentNumber}} class="col-lg-6" style="min-height: 300px;">
+                </div>
+    
+                <div [hidden]="!showCountUp()" [attr.data-timer]="0" id={{incidentNumberCounter}} class="col-lg-12" style="min-height: 170px;">
+                </div>
+    
+                <div class="col-lg-6" *ngIf="showCountDown()">
+                    <div class="form-horizontal" style="margin-top:13%;">
+                        <div class="form-group">
+                            <label class="control-label col-lg-12" style="text-align: left;">Incident Number: {{incidentNumber}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-12" style="text-align: left;">Severity Number: {{severityNumber}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-12" style="text-align: left;">Tech/OP Bridge: {{techOpBridge}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-12" style="text-align: left;">IM/Tech Lead: {{imTechLead}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-12" style="text-align: left;">Incident Summary: {{incidentSummary}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12" *ngIf="showCountUp()">
+                        <div class="form-horizontal">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12" style="text-align: left;">Incident Number: {{incidentNumber}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12" style="text-align: left;">Severity Number: {{severityNumber}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12" style="text-align: left;">Tech/OP Bridge: {{techOpBridge}}</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12" style="text-align: left;">IM/Tech Lead: {{imTechLead}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12" style="text-align: left;">Incident Summary: {{incidentSummary}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
