@@ -61,10 +61,9 @@ elapseTime;
 // new Date(startdate).toUTCString(); // new Date(2017, 10, 8, 21, 0, 0, 0).toUTCString();// UTC for removal
 
       const hourInSeconds = 3600;
-      const startDateFromDB: any = new Date(startdate); // new Date(2017, 10, 8, 21, 0, 0, 0).toUTCString();// UTC remove
-      const currentGMTDate: any = new Date().toUTCString(); /*localtime that need to be convert to UTC*/
-      const diffInSeconds = (Date.parse(currentGMTDate) - Date.parse(startDateFromDB)) / 1000;
-      return  hourInSeconds - diffInSeconds; // this.remainingSeconds =
+      const startDateFromDB: any = this.convertUTCDateToLocalDate(new Date(startdate));
+      const currentGMTDate: any = new Date();const diffInSeconds = (Date.parse(currentGMTDate) - Date.parse(startDateFromDB)) / 1000;
+      return  hourInSeconds - diffInSeconds;
 
     }
 }
