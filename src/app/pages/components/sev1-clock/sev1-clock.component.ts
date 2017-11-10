@@ -1,3 +1,4 @@
+// import { setTimeout } from 'timers';
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
 declare var jquery: any;
@@ -61,32 +62,36 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
 
             if (this.elapseTime <= 0) {
 
-                $('.' + this.incidentNumberCounter).TimeCircles({
-                    time: {
-                        Days: {
-                            show: true,
-                            text: 'Day/s',
-                            color: '#F99'
-                        },
-                        Hours: {
-                            show: true,
-                            text: 'Hour/s',
-                            color: '#F99'
-                        },
-                        Minutes: {
-                            show: true,
-                            text: 'Minute/s',
-                            color: '#F99'
-                        },
-                        Seconds: {
-                            show: true,
-                            text: 'Second/s',
-                            color: '#F99'
-                        }
-                    }
-                });
+                setTimeout(() => { this.initializeCountUp(); }, 500);
             }
         }
+    }
+
+    initializeCountUp(){
+        $('.' + this.incidentNumberCounter).TimeCircles({
+            time: {
+                Days: {
+                    show: true,
+                    text: 'Day/s',
+                    color: '#F99'
+                },
+                Hours: {
+                    show: true,
+                    text: 'Hour/s',
+                    color: '#F99'
+                },
+                Minutes: {
+                    show: true,
+                    text: 'Minute/s',
+                    color: '#F99'
+                },
+                Seconds: {
+                    show: true,
+                    text: 'Second/s',
+                    color: '#F99'
+                }
+            }
+        });
     }
 
     showCountDown() {
