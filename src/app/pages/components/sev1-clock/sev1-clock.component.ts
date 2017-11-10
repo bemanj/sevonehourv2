@@ -29,7 +29,7 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
     ngAfterViewInit() {
         setInterval(() => { this.setFlipClock(); }, 1000);
 
-        $('#' + this.incidentNumber).TimeCircles({
+        $('.' + this.incidentNumber).TimeCircles({
             time: {
                 Days: {
                     show: false,
@@ -61,7 +61,7 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
 
             if (this.elapseTime <= 0) {
 
-                $('#' + this.incidentNumberCounter).TimeCircles({
+                $('.' + this.incidentNumberCounter).TimeCircles({
                     time: {
                         Days: {
                             show: true,
