@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
+// import { RegionalTimeComponent} from './../core/components/regional-time/regional.time.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +15,8 @@ import { CommonModule } from '@angular/common';
   declarations: [
     BsNavbarComponent,
     HomeComponent,
-    LoginComponent,
+    LoginComponent
+    // RegionalTimeComponent
   ],
   exports: [
     BsNavbarComponent

@@ -13,15 +13,15 @@ import { DataService } from '../../../shared/services/data/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-wallboarddata: WallboardFetch[] = [];
-tempwallboardata: TempWallBoardData[] = [];
-public remainingSeconds: number;
-// incidents$: {};
-incidentNumber;
-elapseTime;
+  wallboarddata: WallboardFetch[] = [];
+  tempwallboardata: TempWallBoardData[] = [];
+  public remainingSeconds: number;
+  // incidents$: {};
+  incidentNumber;
+  elapseTime;
 
   constructor(private fetchdata: DataService) {
-              }
+  }
 
   ngOnInit() {
     // const myid = 1;
@@ -31,7 +31,7 @@ elapseTime;
     //   Title: 'CEO',
     //   Name: 'John Doe',
     // };
-// debugger;
+    // debugger;
     // const hourInSeconds = 3600;
     // const startDateFromDB: any = new Date(2017, 10, 8, 21, 0, 0, 0).toUTCString();
     // const currentGMTDate: any = new Date().toUTCString(); /*localtime that need to be convert to UTC*/
@@ -41,41 +41,41 @@ elapseTime;
     this.fetchdata.getAll().subscribe(d => {
       this.wallboarddata = d;
       d.forEach((data: WallboardFetch) => {
-            this.tempwallboardata.push(
-             new TempWallBoardData(
-               data.$id, data.Incident_Number,
-               this.SecondsRemain(data.Start_Date),
-               this.convertUTCDateToLocalDate(new Date(data.Start_Date)))
-             );
+        this.tempwallboardata.push(
+          new TempWallBoardData(
+            data.$id, data.Incident_Number,
+            this.SecondsRemain(data.Start_Date),
+            this.convertUTCDateToLocalDate(new Date(data.Start_Date)))
+        );
       });
       console.log(this.tempwallboardata);
     });
 
 
-  // this.fetchdata.getAll(myid, data.Title, data.Name).subscribe(d => {
-  //   console.log(d);
-  // });
+    // this.fetchdata.getAll(myid, data.Title, data.Name).subscribe(d => {
+    //   console.log(d);
+    // });
   }
- SecondsRemain(startdate: Date) {
-// debugger
-// new Date(startdate).toUTCString(); // new Date(2017, 10, 8, 21, 0, 0, 0).toUTCString();// UTC for removal
+  SecondsRemain(startdate: Date) {
+    // debugger
+    // new Date(startdate).toUTCString(); // new Date(2017, 10, 8, 21, 0, 0, 0).toUTCString();// UTC for removal
 
-      const hourInSeconds = 3600;
-      const startDateFromDB: any = this.convertUTCDateToLocalDate(new Date(startdate));
-      const currentGMTDate: any = new Date();
-      const diffInSeconds = (Date.parse(currentGMTDate) - Date.parse(startDateFromDB)) / 1000;
-      return  hourInSeconds - diffInSeconds;
+    const hourInSeconds = 3600;
+    const startDateFromDB: any = this.convertUTCDateToLocalDate(new Date(startdate));
+    const currentGMTDate: any = new Date();
+    const diffInSeconds = (Date.parse(currentGMTDate) - Date.parse(startDateFromDB)) / 1000;
+    return hourInSeconds - diffInSeconds;
 
-    }
+  }
 
-    convertUTCDateToLocalDate(da: Date) {
-      // debugger
-      const newDate = new Date(da.getTime() + da.getTimezoneOffset() * 60 * 1000);
-      const offset = da.getTimezoneOffset() / 60;
-      const hours = da.getHours();
+  convertUTCDateToLocalDate(da: Date) {
+    // debugger
+    const newDate = new Date(da.getTime() + da.getTimezoneOffset() * 60 * 1000);
+    const offset = da.getTimezoneOffset() / 60;
+    const hours = da.getHours();
 
-      newDate.setHours(hours - offset);
-      return newDate;
+    newDate.setHours(hours - offset);
+    return newDate;
 
-      }
+  }
 }

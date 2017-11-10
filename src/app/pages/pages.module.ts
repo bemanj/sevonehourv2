@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OvertimeClockComponent } from './components/overtime-clock/overtime-clock.component';
 import { Sev1ClockComponent } from './components/sev1-clock/sev1-clock.component';
 import { WallboardComponent } from './components/wallboard/wallboard.component';
+import { RegionalTimeComponent} from './../core/components/regional-time/regional.time.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { WallboardComponent } from './components/wallboard/wallboard.component';
     WallboardComponent,
     Sev1ClockComponent,
     OvertimeClockComponent,
+    RegionalTimeComponent
   ]
 })
 export class PagesModule {
