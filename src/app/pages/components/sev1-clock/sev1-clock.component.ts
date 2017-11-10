@@ -67,7 +67,7 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
         }
     }
 
-    initializeCountUp(){
+    initializeCountUp() {
         $('.' + this.incidentNumberCounter).TimeCircles({
             time: {
                 Days: {
