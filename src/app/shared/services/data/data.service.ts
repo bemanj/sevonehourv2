@@ -20,6 +20,11 @@ export class DataService {
      .map((res: Response) => res.json());
     }
 
+    // return this.http.get(this._url + 'WallBoardValues/')
+    //  .do(this.logResponse)
+    //  .map((res: Response) => res.json());
+    // }
+
 
     // getAll(a, b, c) {
     //   console.log(b);

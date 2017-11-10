@@ -1,3 +1,59 @@
+<div class="form-group">
+    <div class="card" style="min-height: 365px;">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link">{{incidentTitle}}</a>
+                    </li>
+                </ul>
+            </div>
+        <div class="row" [hidden]="!showCountDown()">
+            <div class="col-lg-6">
+
+                <div class="card-block">
+                    <div [attr.data-timer]="elapseTime" [ngClass]="incidentNumber" style="min-height: 300px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Incident Number: {{incidentNumber}}</li>
+                    <li class="list-group-item">Severity Number: {{severityNumber}}</li>
+                    <li class="list-group-item">Tech/OP Bridge: {{techOpBridge}}</li>
+                    <li class="list-group-item">IM/Tech Lead: {{imTechLead}}</li>
+                    <li class="list-group-item">Incident Summary: {{incidentSummary}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row" [hidden]="!showCountUp()">
+            <div class="col-lg-12">
+                <div class="card-block">
+
+                    <div [attr.data-date]="startdDate" [ngClass]="incidentNumberCounter" class="col-lg-12" style="min-height: 170px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Incident Number: {{incidentNumber}}</li>
+                    <li class="list-group-item">Severity Number: {{severityNumber}}</li>
+                    <li class="list-group-item">Tech/OP Bridge: {{techOpBridge}}</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">IM/Tech Lead: {{imTechLead}}</li>
+                    <li class="list-group-item">Incident Summary: {{incidentSummary}}</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 
 <div class="col-lg-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -10,13 +66,12 @@
                 </div>
             </div>
             <div class="panel-body" style="min-height: 335px;">
-               
-                <div *ngIf="showCountDown()" [attr.data-timer]="elapseTime" id={{incidentNumber}} class="col-lg-6" style="min-height: 300px;">
+                <div [hidden]="!showCountDown()" [attr.data-timer]="elapseTime" id={{incidentNumber}} class="col-lg-6" style="min-height: 300px;">
                 </div>
     
                 <div [hidden]="!showCountUp()" [attr.data-date]="startdDate" id={{incidentNumberCounter}} class="col-lg-12" style="min-height: 170px;">
-                </div>
-    
+                </div> 
+
                 <div class="col-lg-6" *ngIf="showCountDown()">
                     <div class="form-horizontal" style="margin-top:13%;">
                         <div class="form-group">
@@ -36,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                     <div class="col-lg-12" *ngIf="showCountUp()">
+                <div class="col-lg-12" *ngIf="showCountUp()">
                         <div class="form-horizontal">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -61,4 +116,4 @@
                     </div>
             </div>
         </div>
-    </div>
+    </div> -->
