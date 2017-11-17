@@ -45,8 +45,12 @@ elapseTime;
              new TempWallBoardData(
                data.$id, data.Incident_Number,
                this.SecondsRemain(data.Start_Date),
-               this.convertUTCDateToLocalDate(new Date(data.Start_Date)))
-             );
+               this.convertUTCDateToLocalDate(new Date(data.Start_Date))
+              , data.Title
+              , data.Incident_Number
+              , data.TechOp_Bridge
+              , data.IMTech_Lead
+              , data.Summary));
       });
       console.log(this.tempwallboardata);
     });

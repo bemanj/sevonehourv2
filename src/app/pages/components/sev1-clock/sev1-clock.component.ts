@@ -16,6 +16,11 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
     @Input() elapseTime: any;
     @Input() incidentNumberCounter: any;
     @Input() startdDate: Date;
+    @Input() incidentTitle: any;
+    @Input() severityNumber: any;
+    @Input() techOpBridge: any;
+    @Input() imTechLead: any;
+    @Input() incidentSummary: any;
 
     public counter: number;
 
