@@ -1,5 +1,4 @@
 export class TempWallBoardData {
-    public _id: number;
     public _incidentNumber: string;
     public _remainingSeconds: number;
     public _startDate: Date;
@@ -9,8 +8,8 @@ export class TempWallBoardData {
     public _imTechLead: string;
     public _incidentSummary: string;
 
-    constructor(id: number
-        , incidentNumber: string
+    constructor(
+          incidentNumber: string
         , remainingSeconds: number
         , startDate: Date
         , incidentTitle: string
@@ -19,7 +18,6 @@ export class TempWallBoardData {
         , imTechLead: string
         , incidentSummary: string
     ) {
-        this._id = id;
         this._incidentNumber = incidentNumber;
         this._remainingSeconds = remainingSeconds;
         this._startDate = startDate;

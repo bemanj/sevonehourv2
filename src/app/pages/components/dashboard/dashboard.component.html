@@ -1,17 +1,8 @@
 <div class="row justify-content-md-center">
     <div class="col-lg-10">
-        <div class="row">
-            <div class="col-lg-6" *ngFor="let incident of tempwallboardata">
-              <app-sev1-clock 
-               [incidentNumber] = "incident._incidentNumber"
-               [elapseTime] = "incident._remainingSeconds"
-               [startdDate] = "incident._startDate"
-               [incidentTitle] = "incident._incidentTitle"
-               [severityNumber] = "incident._severityNumber"
-               [techOpBridge] = "incident._techOpBridge"
-               [imTechLead] = "incident._imTechLead"
-               [incidentSummary] = "incident._incidentSummary"
-               >
+        <div class="row">                    
+            <div class="col-lg-6" *ngFor="let incident of tempWallboarData">       
+              <app-sev1-clock [tempWallboarData] = "incident">
                </app-sev1-clock> 
             </div>
         </div>

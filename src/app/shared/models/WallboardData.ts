@@ -1,4 +1,4 @@
-export class WallboardFetch {
+export class WallboardData {
     $id: number;
     Title: string;
     Incident_Number: string;

@@ -10,6 +10,7 @@ import { PagesModule } from './pages/pages.module';
 import { DashboardComponent } from './pages/components/dashboard/dashboard.component';
 import { WallboardComponent } from './pages/components/wallboard/wallboard.component';
 import { ChartsModule } from 'ng2-charts';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,10 +23,7 @@ import { ChartsModule } from 'ng2-charts';
     PagesModule,
     ChartsModule,
     CoreModule,
-    RouterModule.forRoot([
-       { path: '', component: WallboardComponent },
-       { path: 'dashboard', component: DashboardComponent },
-    ])
+    AppRoutingModule
   ],
   providers: [
   ],

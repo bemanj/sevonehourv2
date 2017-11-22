@@ -13,11 +13,12 @@ export class DataService {
       this._url = configService.getApiURI();
     }
 
-    getAll() {
-      console.log();
-    return this.http.get(this._url + 'WallBoardValues/')
+    public getAll() {
+
+      return this.http.get(this._url + 'WallBoardValues/')
      .do(this.logResponse)
      .map((res: Response) => res.json());
+
     }
 
     // return this.http.get(this._url + 'WallBoardValues/')

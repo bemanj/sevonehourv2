@@ -1,33 +1,25 @@
-// import { setTimeout } from 'timers';
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { TempWallBoardData } from '../../../shared/models/TempWallBoardData';
 declare var $: any;
-declare var jquery: any;
-// import * as t from './../../../../assets/flipclock';
 
 @Component({
     selector: 'app-sev1-clock',
     templateUrl: './sev1-clock.component.html',
-    styleUrls: ['./sev1-clock.component.css'],
-    styles: ['@imports "../../../../assets/bootstrap.css"']
+    styleUrls: ['./sev1-clock.component.css']
 })
 export class Sev1ClockComponent implements AfterViewInit, OnInit {
 
-    @Input() incidentNumber: any;
-    @Input() elapseTime: any;
-    @Input() incidentNumberCounter: any;
-    @Input() startdDate: Date;
-    @Input() incidentTitle: any;
-    @Input() severityNumber: any;
-    @Input() techOpBridge: any;
-    @Input() imTechLead: any;
-    @Input() incidentSummary: any;
+    @Input()
+    public tempWallboarData: TempWallBoardData;
 
-    public counter: number;
+    public incidentNumberCounter: string;
+    public elapseTime: number;
+
 
     ngOnInit() {
 
-        this.incidentNumberCounter = (this.incidentNumber + 'Counter');
-        if (isNaN(this.elapseTime) || this.elapseTime < 0) {
+        this.incidentNumberCounter = (this.tempWallboarData._incidentNumber + 'Counter');
+        if (isNaN(this.tempWallboarData._remainingSeconds) || this.tempWallboarData._remainingSeconds < 0) {
             this.elapseTime = 0;
         }
     }
@@ -35,7 +27,7 @@ export class Sev1ClockComponent implements AfterViewInit, OnInit {
     ngAfterViewInit() {
         setInterval(() => { this.setFlipClock(); }, 1000);
 
-        $('.' + this.incidentNumber).TimeCircles({
+        $('.' + this.tempWallboarData._incidentNumber).TimeCircles({
             time: {
                 Days: {
                     show: false,
